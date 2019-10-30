@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<meta http-equiv=X-UA-Compatible content="ie=edge">
+<title>Forest</title>
+<style>body{margin:0;padding:0;background:#fadaa3}</style>
+<script src=https://aframe.io/releases/0.6.1/aframe.min.js></script>
+<script src=https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js></script>
+</head>
+<body>
+<a-scene>
+<a-assets>
+</a-assets>
+<a-entity environment="preset: forest;"></a-entity>
+<a-sphere id=sphere position="-.59 3.5 -5" radius=0.87 scale="0.45 0.85 0.35">
+<a-animation color begin=mouseenter attribute=color from=#1ABC9C to=#E74C3C dur=2300></a-animation>
+<a-animation begin=mouseleave attribute=color from=#E74C3C to=#1ABC9C dur=1500></a-animation>
+</a-sphere>
+<a-camera>
+<a-cursor></a-cursor>
+</a-camera>
+</a-scene>
+</body>
+</html>
