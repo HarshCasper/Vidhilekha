@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Speech Detection</title>
+</head>
+<body id="try">
+<link rel="stylesheet" href="styles.css">
+ <div class="words" contenteditable>
+ </div>
+
+   <div class="words1" contenteditable>
+ </div> 
+    
+<script>
+ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+ const recognition = new SpeechRecognition();
+ recognition.interimResults = true;
+ recognition.lang = 'en-US';
+ 
+ let p = document.createElement('p');
+    
+    let p1 = document.createElement('p');
+    
+ const words = document.querySelector('.words');
+    
+    const words1 = document.querySelector('.words1');
+    
+ words.appendChild(p);
+    
+    words1.appendChild(p1);
+   
+ recognition.addEventListener('result', e => {
+   const transcript = Array.from(e.results)
+     .map(result => result[0])
+     .map(result => result.transcript)
+     .join('');
+   
+     var happyWords = ["happy", "smile", "good"];
+      var sadWords = ["unhappy", "sad", "bad"];
+      var angryWords = ["angry", "frown"];
+   var excitedWords= ["excited","high"];
+   var wowWords= ['wow','amazed'];
+   var loveWords=['lovely','love','charming','great']
+     
+      var emoScript = replace(transcript, happyWords, '😊');
+     console.log(emoScript);
+        emoScript = replace(emoScript, sadWords, '😞');
+     console.log(emoScript);
+        emoScript = replace(emoScript, angryWords, '😠');
+      console.log(emoScript);
+           emoScript = replace(emoScript, excitedWords, '🤩');
+      console.log(emoScript);
+           emoScript = replace(emoScript, wowWords, '😱');
+      console.log(emoScript);
+            emoScript = replace(emoScript, loveWords, '❤️');
+      console.log(emoScript);
+    
+      
+      p.textContent = emoScript;
+      p1.textContent = transcript;
+      if (e.results[0].isFinal) {
+        p = document.createElement('p');
+           words.appendChild(p);
+          p1 = document.createElement('p');
+       words1.appendChild(p1);
+      }
+      scrollToBottom();
+     
+  });
+  recognition.addEventListener('end', recognition.start);
+  recognition.start();
+     function scrollToBottom() {
+  p.scrollIntoView(false);
+}
+  
+    
+    function replace(string, listOfWords, emoji)
+    {
+        var words = string.split(" ");
+        
+        for(var i = 0; i < words.length; i += 1)
+            {
+                for (var j = 0; j < listOfWords.length; j+=1)
+                    {
+                        if(words[i] == listOfWords[j])
+                            {
+                                words[i] = emoji;
+                            }
+                    }
+            }
+        var finalStatement = words.join(' ');
+        
+        return finalStatement;
+        
+    }
+    
+</script>
+
+
+    
+    
+    
+    
+ <style>
+     
+     .words {
+     max-width: 600px;
+         width: 500px;
+     margin: 50px auto;
+         margin-right: 200px;
+     background: white;
+     border-radius: 5px;
+     box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+     padding: 1rem 2rem 1rem 5rem;
+     background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+     background-size: 100% 3rem;
+     position: absolute;
+     right: 1%;
+     line-height: 3rem;
+   }
+   html {
+     font-size: 10px;
+   }
+   body {
+     background: #ffc600;
+     font-family: 'helvetica neue';
+     font-weight: 200;
+     font-size: 20px;
+   }
+   .words1 {
+     max-width: 600px;
+     width: 500px;
+     margin: 50px auto;
+       margin-left: 200px;
+     background: white;
+     border-radius: 5px;
+     box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+     padding: 1rem 2rem 1rem 5rem;
+     background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+     background-size: 100% 3rem;
+     position:absolute;
+       left: 1%;
+     line-height: 3rem;
+   }
+   
+   p {
+     margin: 0 0 3rem;
+   }
+   .words1:before {
+     content: '';
+     position: absolute;
+     width: 4px;
+     top: 0;
+     left: 30px;
+     bottom: 0;
+     border: 1px solid;
+     border-color: transparent #efe4e4;
+   }
+     .words:before {
+     content: '';
+     position: absolute;
+     width: 4px;
+     top: 0;
+     left: 30px;
+     bottom: 0;
+     border: 1px solid;
+     border-color: transparent #efe4e4;
+   }
+ </style>
+<div id="refer"></div>
+<script src="app.js"></script>
+</body>
+</html>
