@@ -1,0 +1,128 @@
+<div class="info">
+	<p>You've accessed the mainframe using a double-handshake attack on the firewall,<br>you need to brute-force the password...</p>
+	<p class="hidden">Press any button to hack<span class="blink">_</span></p>
+</div>
+<div class="password hidden"></div>
+<div class="button start">START HACKING!</div>
+<div class="blink granted hidden">ACCESS GRANTED!</div>
+<div class=" button rerun hidden">RERUN</div>
+<style>
+
+@keyframes blink {
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+body {
+	background-color: #5EB1BF;
+	color: #eeeeee;
+	font-family: 'Share Tech Mono', monospace;
+	user-select: none;
+}
+
+.hidden {
+	display: none;
+}
+
+.password {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 60px;
+	letter-spacing: 5px;
+	text-transform: uppercase;
+}
+
+.granted {
+	position: absolute;
+	top: 75%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 30px;
+}
+
+.info {
+	position: absolute;
+	padding:0 0 0 20px;
+	top: 0;
+	left: 0;
+	p { margin: 10px; }
+}
+
+.button {
+	background-color: #D84727;
+	border: solid 3px #CDEDF6;
+	padding: 8px 25px;
+	font-size: 26px;
+	letter-spacing: 3px;
+	cursor: pointer;
+}
+.rerun {
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+}
+.start {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.blink {
+	    animation: blink 0.8s steps(1, start) infinite alternate;
+}
+
+</style>
+
+<script>
+
+var passwords = ['password123', 'qwertyuiop', 'admin2015', 'trustno1', 'letmein6969'];
+var indexOld;
+var index = Math.floor((Math.random() * passwords.length));
+var password = passwords[index];
+var characters = [];
+var counter = 0;
+	
+var interval = setInterval(function(){
+		for(i = 0; i < counter; i++) {
+			characters[i] = password.charAt(i);
+		}
+		for(i = counter; i < password.length; i++) {
+			characters[i] = Math.random().toString(36).charAt(2);
+		}
+		$('.password').text(characters.join(''));
+	}, 25);
+	
+
+function hack() {
+	counter++;
+	if(counter == password.length){
+		$('.granted, .rerun').removeClass('hidden');
+	}
+}
+$(window).on('keydown', hack);
+$('.password').on('click', hack);
+
+
+$('.rerun').on('click', function() {
+	//prevent from displaying the same password two times in a row
+	indexOld = index; 
+	do {
+		index = Math.floor((Math.random() * passwords.length));
+	} while(index == indexOld);
+	
+	$('.granted, .rerun').addClass('hidden');
+	password = passwords[index];
+	characters = [];
+	counter = 0;
+});
+
+//keyboard events won't fire if the iframe isn't selected first in Full Page view
+$('.start').on('click', function() {
+	$(this).addClass('hidden');
+	$('.info p:last-child, .password').removeClass('hidden');
+});
+
+</script>
