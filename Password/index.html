@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+</style>
+</head>
+<body>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+<body>
+
+<div class="container">
+<div class="jumbotron">
+<form>
+<lable><b>Password:</b></lable><br>
+<div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+ <input type="password" class="form-control" minlength="8" id="pwd"><span class="input-group-addon"> <input type="checkbox" id="show"> Check password</span>
+</div>
+</form><center>Password Strength</center>
+ <div class="progress">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="a">     
+    </div>
+  </div>
+<font>For Strong password:<br>Password must include at least 8 characters with atleast 1 uppercase,1 lowercase letter, number and a special characer.</font>
+    <div>
+                                                <div style="float:left;padding-left: 10px">
+                                                    <span id="8char" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span>
+                                                    8 Characters Long
+
+                                                </div>
+                                                <div style="float:left; padding-left: 10px">
+                                                    <span id="ucase" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span>
+                                                    One Uppercase Letter
+
+                                                </div>
+                                                <div style="float:left;padding-left: 10px">
+                                                    <span id="lcase" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span>
+                                                    One Lowercase Letter
+
+                                                </div>
+                                                <div style="float:left;padding-left: 10px ">
+                                                    <span id="num" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span>
+                                                    One Number
+                                                </div>
+                                            </div>
+   
+
+
+                                        </div>
+  
+</div>
+
+
+
+<script>
+var number = /([0-9])/;
+var alphabets = /([a-z])/;
+var upper=/([A-Z])/;
+var special_characters = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+$(document).ready(function(){
+$("#pwd").keyup(function(){
+     var ucase = new RegExp("[A-Z]+");
+            var lcase = new RegExp("[a-z]+");
+            var num = new RegExp("[0-9]+");
+if($('#pwd').val().length==0)
+	$("#a").width("0%");
+if($('#pwd').val().length>4 && $('#pwd').val().length<8)
+$("#a").width("40%").css("background-color","red").html("poor");
+if($('#pwd').val().length>=8)
+{$("#a").width("50%").css("background-color","orange").html("weak");
+  $("#8char").removeClass("glyphicon-remove");
+                $("#8char").addClass("glyphicon-ok");
+                $("#8char").css("color", "#00A41E");
+}
+    else{
+         $("#8char").removeClass("glyphicon-ok");
+                $("#8char").addClass("glyphicon-remove");
+                $("#8char").css("color", "#FF0004");
+    }
+if($('#pwd').val().match(number) && $('#pwd').val().length>=8)
+$("#a").width("60%").css("background-color","blue").html("medium");
+if($('#pwd').val().match(alphabets) && $('#pwd').val().length>=8)
+$("#a").width("60%").css("background-color","blue");
+if($('#pwd').val().match(upper) && $('#pwd').val().length>=8)
+$("#a").width("60%").css("background-color","blue");
+if($('#pwd').val().match(number) && $('#pwd').val().match(alphabets) &&  $('#pwd').val().length>=8)
+$("#a").width("70%").css("background-color","lightblue").html("Good");
+if($('#pwd').val().match(number) && $('#pwd').val().match(alphabets) &&  $('#pwd').val().length>=8 && $('#pwd').val().match(upper))
+$("#a").width("80%").css("background-color","lightgreen").html("Good");
+if($('#pwd').val().match(number) && $('#pwd').val().match(alphabets) && $('#pwd').val().match(special_characters)&&$('#pwd').val().length>=8 && $('#pwd').val().match(upper))
+$("#a").width("100%").css("background-color","green").html("Strong")
+     if (ucase.test($("#pwd").val())) {
+                $("#ucase").removeClass("glyphicon-remove");
+                $("#ucase").addClass("glyphicon-ok");
+                $("#ucase").css("color", "#00A41E");
+            } else {
+                $("#ucase").removeClass("glyphicon-ok");
+                $("#ucase").addClass("glyphicon-remove");
+                $("#ucase").css("color", "#FF0004");
+            }
+            if (lcase.test($("#pwd").val())) {
+                $("#lcase").removeClass("glyphicon-remove");
+                $("#lcase").addClass("glyphicon-ok");
+                $("#lcase").css("color", "#00A41E");
+            } else {
+                $("#lcase").removeClass("glyphicon-ok");
+                $("#lcase").addClass("glyphicon-remove");
+                $("#lcase").css("color", "#FF0004");
+            }
+      if (num.test($("#pwd").val())) {
+                $("#num").removeClass("glyphicon-remove");
+                $("#num").addClass("glyphicon-ok");
+                $("#num").css("color", "#00A41E");
+            } else {
+                $("#num").removeClass("glyphicon-ok");
+                $("#num").addClass("glyphicon-remove");
+                $("#num").css("color", "#FF0004");
+            }
+     if ($("#pwd").val() == $("#pwdd2").val()) {
+                $("#pwmatch").removeClass("glyphicon-remove");
+                $("#pwmatch").addClass("glyphicon-ok");
+                $("#pwmatch").css("color", "#00A41E");
+            } else {
+                $("#pwmatch").removeClass("glyphicon-ok");
+                $("#pwmatch").addClass("glyphicon-remove");
+                $("#pwmatch").css("color", "#FF0004");
+            }
+        });
+});
+var n=0;
+$(document).ready(function(){
+  $('body').on('click','#show',function(){
+    if(n%2==0)
+    $("#pwd").attr("type","text");
+    else
+    $("#pwd").attr("type","password");
+    n++;
+  });
+});
+//# sourceURL=userscript.js
+</script>
+</body>
+</html>
