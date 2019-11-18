@@ -1,0 +1,67 @@
+
+<html>
+  <head>
+    <title>sort.js</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+
+  <body>
+  	<div>
+      <div class="sidebar">
+        <p id="header">sort.js</p><hr>
+        <form>
+          <input type="radio" name="sort" class="input" id="bubble">
+          <label for="bubble" class="label">bubbleSort</label><hr>
+          <input type="radio" name="sort" class="input" id="insertion">
+          <label for="insertion" class="label">insertionSort</label><hr>
+          <input type="radio" name="sort" class="input" id="quick" checked>
+          <label for="quick" class="label">quickSort</label><hr>
+          <input type="radio" name="sort" class="input" id="merge">
+          <label for="merge" class="label">mergeSort</label><hr>
+          <input type="radio" name="sort" class="input" id="heap">
+          <label for="heap" class="label">heapSort</label><hr>
+        </form>
+        <h3>elements</h3>
+        <select id="elements">
+          <option value="10">10</option>
+          <option value="20" selected="selected">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="200">200</option>
+        </select>
+        <hr>
+        <h3>interval (ms)</h3>
+        <select id="interval">
+          <option value="10">10</option>
+          <option value="50">50</option>
+          <option value="100" selected="selected">100</option>
+          <option value="500">500</option>
+          <option value="1000">1000</option>
+        </select>
+        <hr>
+        <div class="color" id="active">
+          <div class="color-text">active subArray</div>
+        </div>
+        <div class="color" id="compare">
+          <div class="color-text">compare</div>
+        </div>
+        <div class="color" id="swap">
+          <div class="color-text">swap</div>
+        </div>
+        <div class="color" id="pivot">
+          <div class="color-text">pivot</div>
+        </div>
+        <div class="color" id="temp">
+         <div class="color-text">pushed to temp</div>
+        </div>
+        <button id='reset-btn'>Reset</button>
+        <button id='start-btn'>Start</button>
+      </div>
+		  <div class="canvas">
+		  	<canvas width=800px height=600px id="main-canvas"></canvas>
+		  </div>
+		</div>
+    <script src='js/sortVisualizer.js'></script>
+  </body>
+</html>
