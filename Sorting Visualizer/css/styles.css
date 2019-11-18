@@ -1,0 +1,132 @@
+body {
+	font-family: 'Raleway', sans-serif;
+	color: white;
+	margin: 0;
+}
+
+.sidebar {
+	width: 15vw;
+  height: 100vh;
+	background-color: #880E4F;
+  float: left;
+  box-shadow: 0 0 0 1px white inset;
+}
+
+.canvas {
+	width: 1;
+	float: left;
+}
+
+#header {
+	font-size: 3em;
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+form {
+	margin: 0;
+}
+
+hr {
+	border-bottom: solid black 1px;
+	margin: 0;
+}
+
+label {
+  width: 100%;
+	font-size: 1.5em;
+  text-align: center;
+  display: inline-block;
+  padding: 2vh 0 2vh 0;
+}
+
+.input:checked+label {
+  font-weight: bold;
+  background: #AD1457;
+  box-shadow: 7px 7px 20px -5px black inset;
+}
+
+.input {
+	display: none;
+}
+
+h3 {
+	font-size: 1.3em;
+	display: inline-block;
+	padding-left: 5%;
+}
+
+select {
+	width: 70px;
+  font-size: 1.3em;
+  color: white;
+  background: none;
+  border: none;
+  float: right;
+  position: relative;
+  top: 21px;
+  margin-right: 5%;
+}
+
+select option {
+	background-color: #880E4F;
+	border: 0;
+}
+
+button {
+	height: 5vh;
+  width: 7.5%;
+  color: white;
+  font-size: 1.5em;
+  background: #212121;
+  border: none;
+  position: absolute;
+  bottom: 0;
+}
+
+.color {
+	width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  position: relative;
+  left: 1vw;
+  margin-top: 2vh;
+}
+
+.color-text {
+	width: 11vw;
+	font-size: 1.1em;
+	position: relative;
+  left: 1.5vw;
+}
+
+#active {
+	background: #FAFAFA;
+}
+
+#compare {
+	background: #18FFFF;
+}
+
+#swap {
+	background: #E040FB;
+}
+
+#pivot {
+	background: #FFFF8D;
+}
+
+#temp {
+	background: #B2FF59;
+}
+
+#reset-btn {
+	left: 0.1vw;
+}
+
+#start-btn {
+  left: 7.435vw;
+  border-left: solid white 1px;
+}
