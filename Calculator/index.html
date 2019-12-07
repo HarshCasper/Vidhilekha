@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="calc">
+            <input type="text" name="input" id="input">
+            <div class="keys">
+            <table>
+                <tr>
+                   <td colspan="2"><button onclick="c()" class="row">c</button></td>
+                   <td><button onclick="fun('/')">/</button></td>
+                   <td><button onclick="fun('*')">x</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="fun(9)">9</button></td>
+                    <td><button onclick="fun(8)">8</button></td>
+                    <td><button onclick="fun(7)">7</button></td>
+                    <td><button onclick="fun('-')">-</button></td>
+                 </tr>
+                 <tr>
+                    <td><button onclick="fun(6)">6</button></td>
+                    <td><button onclick="fun(5)">5</button></td>
+                    <td><button onclick="fun(4)">4</button></td>
+                    <td><button onclick="fun('+')">+</button></td>
+                 </tr>
+                 <tr>
+                    <td><button onclick="fun(3)">3</button></th>
+                    <td><button onclick="fun(2)">2</button></th>
+                    <td><button onclick="fun(1)">1</button></td>
+                   <td rowspan="2"><button  onclick="func()" class="col">=</button></td>
+                </tr>
+                 <tr>
+                   <td colspan="2"><button onclick="fun(0)" class="row">0</button></td>
+                    <td><button onclick="fun('.')">
+                    <div class="point"></div>
+                    </button></td>
+                 </tr>
+            </table>
+        </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
