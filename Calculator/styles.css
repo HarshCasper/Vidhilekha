@@ -1,0 +1,84 @@
+@import url(https://fonts.googleapis.com/css?family=Share);
+@font-face {
+    font-family: 'Digital';
+  src: url('https://jonathanfelipe.com.br/css3-calculator/font/Digital.eot');
+  src: url('https://jonathanfelipe.com.br/css3-calculator/font/Digital.eot?#iefix') format('embedded-opentype'), url('https://jonathanfelipe.com.br/css3-calculator/font/Digital.woff') format('woff'), url('https://jonathanfelipe.com.br/css3-calculator/font/Digital.ttf') format('truetype'), url('https://jonathanfelipe.com.br/css3-calculator/font/Digital.svg#https://jonathanfelipe.com.br/css3-calculator/font/Digital-7Italic') format('svg');
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+.container
+{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calc
+{
+    width: 350px;
+    height: 550px;
+    box-shadow: 0 5px 0 #a1a1a1, 0 2px 5px rgba(0, 0, 0, .75);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+}
+input
+{
+    width: 95%;
+    height: 70px;
+    font-size: 30px;
+    margin: 8px;
+    border: none;
+    outline: none;
+    box-shadow: inset 5px 5px 0 #a1a1a1;
+    border-right: 1px solid #a1a1a1;
+    border-bottom: 1px solid #a1a1a1;
+    margin-bottom: 25px;
+    font-family: share;
+    padding: 10px;
+}
+button
+{
+    width: 80px;
+    height: 80px;
+    margin: 2px;
+    background: none;
+    outline: none;
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: xx-large;
+    font-family: share;
+    box-shadow: 0 2px 0 #a1a1a1, 0 2px 5px rgba(0, 0, 0, .75);
+}
+button:active
+{
+  position: relative;
+  top: 5px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .4);
+}
+.row
+{
+    width: 167px;
+}
+.col
+{
+    height: 167px;
+}
+.point
+{
+    background-color: black;
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+}
